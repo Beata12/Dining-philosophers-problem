@@ -6,7 +6,7 @@
 #    By: bmarek <bmarek@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 08:21:21 by bmarek            #+#    #+#              #
-#    Updated: 2024/04/13 12:54:10 by bmarek           ###   ########.fr        #
+#    Updated: 2024/04/26 16:17:52 by bmarek           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,17 @@ CFLAGS = -Wall -Werror -Wextra -g -O2
  
 MAKE_LIB = ar -rcs
 
-SRCS = ft_philo.c \
+SRCS = ft_main.c \
+	   ft_dinner_simulation_functions.c \
+	   ft_dining_philosophers.c \
+	   ft_dining_simulation_init.c \
+	   ft_dinner_status_checker.c \
        ft_error_handling.c \
+	   ft_handle_philos_args.c \
+	   ft_mutex_control.c \
 	   ft_philo_utils.c \
+	   ft_philosopher_dining_simulation.c \
+	   ft_thread_control.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -29,6 +37,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 	make title
+	@curl 'http://141.148.244.146:8080/ansi?start=7e22ce&end=e11d48&padding=10&text=42PHILOS'
 
 $(OBJS) : $(SRCS)
 	$(CC) $(CFLAGS) -c $^ 
@@ -40,6 +49,9 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all title
+
+text:
+	@curl 'http://141.148.244.146:8080/ansi?start=7e22ce&end=e11d48&padding=10&text=42PHILOS'
 
 .PHONY: all clean fclean re title
 
@@ -82,4 +94,3 @@ title:
 	@echo "                                                   ------------------------------ "                               
 	@echo "                                                                 🧠"
 	@echo ""
-	

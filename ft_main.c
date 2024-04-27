@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_philo.c                                         :+:      :+:    :+:   */
+/*   ft_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmarek <bmarek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 10:08:35 by bmarek            #+#    #+#             */
-/*   Updated: 2024/04/13 12:55:01 by bmarek           ###   ########.fr       */
+/*   Updated: 2024/04/26 14:54:01 by bmarek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,15 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argv;
-	if (argc == 5)
+	t_dining_table	dining_table;
+
+	if (argc == 5 || argc == 6)
 	{
-		if (ft_atoi(argv[1]) && ft_atoi(argv[2]) && ft_atoi(argv[3]) && ft_atoi(argv[4]))
-        {
-            printf("%s\n", "Correct input");
-        }
-        else
-            error_input();
+		handle_philos_args(&dining_table, argv);
+		init_dining_table(&dining_table);
+		begin_dinner_simulation(&dining_table);
+		free_dining_table(&dining_table);
 	}
 	else
-	{
 		error_message();
-	}
 }
