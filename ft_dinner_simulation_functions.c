@@ -6,13 +6,18 @@
 /*   By: bmarek <bmarek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 07:16:04 by bmarek            #+#    #+#             */
-/*   Updated: 2024/04/26 15:02:10 by bmarek           ###   ########.fr       */
+/*   Updated: 2024/05/03 11:11:16 by bmarek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_philo.h"
 
-// Funkcja ustawiająca czas ostatniego posiłku
+// Set last meal time.
+// This function updates the time of the last meal for a philosopher.
+// It locks the philosopher's mutex to ensure atomicity and unlocks it afterward.
+// Parameters:
+// - philo: Pointer to the philosopher structure.
+
 void	set_last_meal_time(t_philo *philo)
 {
 	process_mutex_operation(&philo->philo_mutex_lock, LOCK_MUTEX);
@@ -20,15 +25,15 @@ void	set_last_meal_time(t_philo *philo)
 	process_mutex_operation(&philo->philo_mutex_lock, UNLOCK_MUTEX);
 }
 
-// Funkcja zwiększająca liczbę wątków
-void	increase_threads_running_nbr(t_dining_table *dining_table)
-{
-	process_mutex_operation(&dining_table->data_access_mutex, LOCK_MUTEX);
-	dining_table->current_thread_count++;
-	process_mutex_operation(&dining_table->data_access_mutex, UNLOCK_MUTEX);
-}
+// Check if simulation is finished.
+// This function checks if the simulation has finished by examining the end_simulation flag
+// in the dining table structure.
+// It locks the data access mutex to ensure synchronization and unlocks it afterward.
+// Parameters:
+// - dining_table: Pointer to the dining table structure.
+// Returns:
+// true if the simulation has finished, false otherwise.
 
-// Funkcja sprawdzająca, czy symulacja zakończona
 bool	is_simulation_finished(t_dining_table *dining_table)
 {
 	bool	simulation_finished;
@@ -39,7 +44,14 @@ bool	is_simulation_finished(t_dining_table *dining_table)
 	return (simulation_finished);
 }
 
-// Funkcja sprawdzająca, czy filozof zjadł już maksymalną liczbę posiłków
+// Check if philosopher is full.
+// This function checks if a philosopher has eaten enough meals.
+// It locks the philosopher's mutex to ensure atomicity and unlocks it afterward.
+// Parameters:
+// - philo: Pointer to the philosopher structure.
+// Returns:
+// true if the philosopher has eaten enough meals, false otherwise.
+
 bool	is_philo_full(t_philo *philo)
 {
 	bool	philo_full;

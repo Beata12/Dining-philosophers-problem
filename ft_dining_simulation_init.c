@@ -6,11 +6,21 @@
 /*   By: bmarek <bmarek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 08:03:46 by bmarek            #+#    #+#             */
-/*   Updated: 2024/04/26 16:27:02 by bmarek           ###   ########.fr       */
+/*   Updated: 2024/05/03 11:00:23 by bmarek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_philo.h"
+
+// Set up the forks for a philosopher.
+// This function determines the left and right forks for a philosopher
+// based on the philosopher's index and the total number of philosophers.
+// If the philosopher's ID is even, the left fork will be the one at its index,
+// otherwise, the left fork will be the one at the next index.
+// Parameters:
+// - philo: Pointer to the philosopher structure.
+// - fork: Array of fork structures.
+// - philosopher_index: Index of the philosopher.
 
 static void	setup_forks_for_philosopher(t_philo *philo, t_fork *fork,
 		int philosopher_index)
@@ -26,6 +36,13 @@ static void	setup_forks_for_philosopher(t_philo *philo, t_fork *fork,
 		philo->right_fork = &fork[(philosopher_index + 1) % philosopher_count];
 	}
 }
+
+// Initialize the philosophers.
+// This function initializes the philosopher structures in the dining table.
+// It sets the philosopher ID, meal count, and mutexes.
+// Additionally, it sets up the forks for each philosopher.
+// Parameters:
+// - dining_table: Pointer to the dining table structure.
 
 static void	initialize_philosophers(t_dining_table *dining_table)
 {
@@ -46,6 +63,14 @@ static void	initialize_philosophers(t_dining_table *dining_table)
 	}
 }
 
+// Safely allocate memory.
+// This function allocates memory with error checking using the malloc function.
+// If memory allocation fails, it displays an error message and terminates the program.
+// Parameters:
+// - allocation_size: Size of memory to be allocated.
+// Returns:
+// A pointer to the allocated memory.
+
 void	*safe_memory_allocation(size_t allocation_size)
 {
 	void	*allocated_memory;
@@ -55,6 +80,13 @@ void	*safe_memory_allocation(size_t allocation_size)
 		error_exit("Failed to allocate memory using malloc function");
 	return (allocated_memory);
 }
+
+// Initialize the dining table.
+// This function initializes the dining table structure.
+// It allocates memory for philosophers and forks, initializes mutexes,
+// and sets up the philosophers with their respective forks.
+// Parameters:
+// - dining_table: Pointer to the dining table structure.
 
 void	init_dining_table(t_dining_table *dining_table)
 {

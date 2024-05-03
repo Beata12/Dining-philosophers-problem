@@ -6,11 +6,19 @@
 /*   By: bmarek <bmarek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 08:35:51 by bmarek            #+#    #+#             */
-/*   Updated: 2024/04/26 16:28:36 by bmarek           ###   ########.fr       */
+/*   Updated: 2024/05/03 11:01:23 by bmarek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_philo.h"
+
+// Process mutex error.
+// This function handles errors that may occur during mutex operations.
+// It checks the status returned by pthread functions and displays
+// an appropriate error message corresponding to the error status.
+// Parameters:
+// - status: The status returned by pthread mutex functions.
+// - operation_type: The type of mutex operation being performed.
 
 static void	process_mutex_error(int status, t_mutex_operation operation_type)
 {
@@ -39,6 +47,14 @@ static void	process_mutex_error(int status, t_mutex_operation operation_type)
 			"The current thread does not hold a lock on the mutex.");
 }
 
+// Process mutex operation.
+// This function performs various mutex operations such as locking,
+// unlocking, initializing, and destroying mutexes.
+// It handles error checking for each operation using process_mutex_error function.
+// Parameters:
+// - mutex_handle: Pointer to the mutex to be operated on.
+// - operation_type: The type of mutex operation to be performed.
+
 void	process_mutex_operation(t_mtx *mutex_handle,
 		t_mutex_operation operation_type)
 {
@@ -51,7 +67,7 @@ void	process_mutex_operation(t_mtx *mutex_handle,
 	else if (operation_type == INITIALIZE_MUTEX)
 		process_mutex_error(pthread_mutex_init(mutex_handle, NULL),
 			operation_type);
-	else if (operation_type == DESTROY_MUTEX)
+	else if (operation_type == DESTROY_THREAD)
 		process_mutex_error(pthread_mutex_destroy(mutex_handle),
 			operation_type);
 	else
