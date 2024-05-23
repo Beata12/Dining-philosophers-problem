@@ -2,21 +2,27 @@
 
 This repository contains my implementation of the classic problem known as the "Dining Philosophers Problem".
 
-**The project is currently under development, and this README will be updated as progress is made.**
-
-**Current Progress**
-
-* Makefile: Fully functional with commands for compiling the source files (all, clean, fclean, re).
-
-* Header Files: Structured to define necessary data structures and function prototypes.
-
-* Error Handling: Implemented to handle potential runtime errors effectively, ensuring robust operation.
-
-* Input Checking: Ensures correct and valid user inputs before proceeding with the simulation.
-
 **Description**
 
 The Dining Philosophers Problem is a classic problem involving philosophers seated around a circular table with a bowl of spaghetti. Philosophers alternatively think, eat, or sleep. To eat, each philosopher needs two forks. However, managing fork access without causing deadlock or starvation among philosophers is the core challenge of this problem.
+![image (5)](https://github.com/Beata12/Dining-philosophers-problem/assets/38575612/93105ef7-4092-4489-8ec5-85965ff57ffd)
+
+**Here's what the program is about:**
+The simulation involves philosophers sitting at a round table with a large bowl of spaghetti in the middle.
+Philosophers alternate between eating, thinking, and sleeping.
+Each philosopher requires two forks to eat, one on their left and one on their right.
+When a philosopher finishes eating, they start sleeping, and upon waking up, they start thinking again.
+The simulation ends when a philosopher dies of starvation.
+All philosophers need to eat and should never starve.
+Philosophers do not communicate with each other, and they are unaware of each other's status.
+
+![image (5) (1)](https://github.com/Beata12/Dining-philosophers-problem/assets/38575612/1afb250b-d307-4b8b-9a4a-dcd11c396727)
+
+**Rules:**
+Each philosopher is represented by a thread.
+There is one fork between each pair of philosophers, and the state of each fork is protected by a mutex.
+The program is avoiding data races and ensure proper synchronization among threads.
+Philosopher threads is programmed to prevent starvation and avoid dying.
 
 **Building and Running**
 
@@ -40,13 +46,3 @@ make
 
 * number_of_times_each_philosopher_must_eat is an optional parameter that stops the simulation when each philosopher has eaten this many times.
 
-
-**Future Plans**
-
-* Enhance synchronization mechanisms to optimize performance.
-
-* Implement additional error checks and input validation.
-
-* Add unit tests and integration tests for robustness and reliability.
-
-* Provide a detailed documentation for each part of the project.
