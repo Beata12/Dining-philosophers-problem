@@ -5,6 +5,8 @@ This repository contains my implementation of the classic problem known as the "
 **Description**
 
 The Dining Philosophers Problem is a classic problem involving philosophers seated around a circular table with a bowl of spaghetti. Philosophers alternatively think, eat, or sleep. To eat, each philosopher needs two forks. However, managing fork access without causing deadlock or starvation among philosophers is the core challenge of this problem.
+
+
 ![image (5)](https://github.com/Beata12/Dining-philosophers-problem/assets/38575612/93105ef7-4092-4489-8ec5-85965ff57ffd)
 
 **Here's what the program is about:**
@@ -15,6 +17,8 @@ When a philosopher finishes eating, they start sleeping, and upon waking up, the
 The simulation ends when a philosopher dies of starvation.
 All philosophers need to eat and should never starve.
 Philosophers do not communicate with each other, and they are unaware of each other's status.
+
+
 
 ![image (5) (1)](https://github.com/Beata12/Dining-philosophers-problem/assets/38575612/1afb250b-d307-4b8b-9a4a-dcd11c396727)
 
