@@ -9,7 +9,7 @@ The Dining Philosophers Problem is a classic problem involving philosophers seat
 
 ![image (5)](https://github.com/Beata12/Dining-philosophers-problem/assets/38575612/93105ef7-4092-4489-8ec5-85965ff57ffd)
 
-## **Here's what the program is about:**
+# **Here's what the program is about:**
 - The simulation involves philosophers sitting at a round table with a large bowl of spaghetti in the middle.
 - Philosophers alternate between eating, thinking, and sleeping.
 - Each philosopher requires two forks to eat, one on their left and one on their right.
