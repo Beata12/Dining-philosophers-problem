@@ -1,4 +1,4 @@
-**#Dining Philosophers Problem**
+# **Dining Philosophers Problem**
 
 This repository contains my implementation of the classic problem known as the "Dining Philosophers Problem".
 
@@ -9,26 +9,26 @@ The Dining Philosophers Problem is a classic problem involving philosophers seat
 
 ![image (5)](https://github.com/Beata12/Dining-philosophers-problem/assets/38575612/93105ef7-4092-4489-8ec5-85965ff57ffd)
 
-**Here's what the program is about:**
-The simulation involves philosophers sitting at a round table with a large bowl of spaghetti in the middle.
-Philosophers alternate between eating, thinking, and sleeping.
-Each philosopher requires two forks to eat, one on their left and one on their right.
-When a philosopher finishes eating, they start sleeping, and upon waking up, they start thinking again.
-The simulation ends when a philosopher dies of starvation.
-All philosophers need to eat and should never starve.
-Philosophers do not communicate with each other, and they are unaware of each other's status.
+## **Here's what the program is about:**
+- The simulation involves philosophers sitting at a round table with a large bowl of spaghetti in the middle.
+- Philosophers alternate between eating, thinking, and sleeping.
+- Each philosopher requires two forks to eat, one on their left and one on their right.
+- When a philosopher finishes eating, they start sleeping, and upon waking up, they start thinking again.
+- The simulation ends when a philosopher dies of starvation.
+- All philosophers need to eat and should never starve.
+- Philosophers do not communicate with each other, and they are unaware of each other's status.
 
 
 
 ![image (5) (1)](https://github.com/Beata12/Dining-philosophers-problem/assets/38575612/1afb250b-d307-4b8b-9a4a-dcd11c396727)
 
-**Rules:**
-Each philosopher is represented by a thread.
-There is one fork between each pair of philosophers, and the state of each fork is protected by a mutex.
-The program is avoiding data races and ensure proper synchronization among threads.
-Philosopher threads is programmed to prevent starvation and avoid dying.
+# **Rules:**
+- Each philosopher is represented by a thread.
+- There is one fork between each pair of philosophers, and the state of each fork is protected by a mutex.
+- The program is avoiding data races and ensure proper synchronization among threads.
+- Philosopher threads is programmed to prevent starvation and avoid dying.
 
-**Building and Running**
+# **Building and Running**
 
 To compile the program, navigate to the root directory of the project and run:
 
