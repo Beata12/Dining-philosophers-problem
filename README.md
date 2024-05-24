@@ -1,4 +1,4 @@
-# **Dining Philosophers Problem**
+# **DINING PHILOSOPHERS PROBLEM**
 
 This repository contains my implementation of the classic problem known as the "Dining Philosophers Problem".
 
